@@ -15,16 +15,15 @@ public class EskidFlowTransformer extends Transformer {
 
             for (MethodNode method : cn.methods) {
                 ArrayList<LabelNode> labelNodes = new ArrayList<>();
-/*                ArrayList<LabelNode> labelNodes = new ArrayList<>();
                 for (int i = 0; i < method.instructions.toArray().length; i++) {
                     AbstractInsnNode insn = method.instructions.get(i);
                     if (insn instanceof LabelNode) {
                         labelNodes.add((LabelNode) insn);
                     }
-                }*/
+                }
 
                 //删除if break块
-/*                for (int i = 0; i < method.instructions.toArray().length; i++) {
+                for (int i = 0; i < method.instructions.toArray().length; i++) {
                     AbstractInsnNode insn = method.instructions.get(i);
                     if (method.instructions.toArray().length > i + 7) {
                         if (insn.getOpcode() == GETSTATIC && method.instructions.get(i + 1) instanceof JumpInsnNode) {
@@ -51,7 +50,7 @@ public class EskidFlowTransformer extends Transformer {
                             }
                         }
                     }
-                }*/
+                }
 
                 for (int i = 0; i < method.instructions.toArray().length; i++) {
                     AbstractInsnNode insn = method.instructions.get(i);
@@ -112,7 +111,7 @@ public class EskidFlowTransformer extends Transformer {
                                 }
                             }
                         }
-/*                        if (insn.getOpcode() == DUP && insn2.getOpcode() == ATHROW) {
+                        if (insn.getOpcode() == DUP && insn2.getOpcode() == ATHROW) {
                             for (int i1 = 0; i1 < 3; i1++) {
                                 removeNodes.add(method.instructions.get(i + i1));
                             }
@@ -126,7 +125,7 @@ public class EskidFlowTransformer extends Transformer {
                             for (int i1 = 0; i1 < 4; i1++) {
                                 removeNodes.add(method.instructions.get(i + i1));
                             }
-                        }*/
+                        }
                     }
                 }
 
@@ -140,7 +139,7 @@ public class EskidFlowTransformer extends Transformer {
         }
     }
 
-    /*                for (int i = 0; i < method.instructions.toArray().length; i++) {
+                    for (int i = 0; i < method.instructions.toArray().length; i++) {
                     AbstractInsnNode insn = method.instructions.get(i);
                     if (method.instructions.toArray().length > i + 3) {
                         AbstractInsnNode ifInsn = method.instructions.get(i + 1);
@@ -152,9 +151,9 @@ public class EskidFlowTransformer extends Transformer {
                             }
                         }
                     }
-                }*/
+                }
 
-    /*
+    
 
                     //删除if break块
                 for (int i = 0; i < method.instructions.toArray().length; i++) {
@@ -185,9 +184,9 @@ public class EskidFlowTransformer extends Transformer {
                         }
                     }
                 }
-    * */
+    
 
-    /*                    if (isInteger(insn)) {
+                        if (isInteger(insn)) {
                         if (method.instructions.toArray().length > i + 1) {
                             AbstractInsnNode ifInsn = method.instructions.get(i + 1);
                             if (ifInsn instanceof JumpInsnNode) {
@@ -204,19 +203,19 @@ public class EskidFlowTransformer extends Transformer {
                                 }
                             }
                         }
-                    }*/
-/*                    if (method.instructions.toArray().length > i + 4) {
+                    }
+                    if (method.instructions.toArray().length > i + 4) {
                         AbstractInsnNode ifInsn = method.instructions.get(i + 1);
                         AbstractInsnNode gotoInsn = method.instructions.get(i + 4);
-//                        AbstractInsnNode egotoInsn = method.instructions.get(i + 5);
+                        AbstractInsnNode egotoInsn = method.instructions.get(i + 5);
                         if (isInteger(insn) && ifInsn instanceof JumpInsnNode && gotoInsn.getOpcode() == GOTO) {
                             for (int i1 = 0; i1 < 5; i1++) {
                                 removeNodes.add(method.instructions.get(i + i1));
                             }
                         }
-                    }*/
+                    }
     //解密没用的if块
-    /*                    if (method.instructions.toArray().length > i + 4) {
+                        if (method.instructions.toArray().length > i + 4) {
                         AbstractInsnNode ifInsn = method.instructions.get(i + 2);
                         AbstractInsnNode gotoInsn = method.instructions.get(i + 4);
                         if ((insn instanceof IntInsnNode || insn instanceof LdcInsnNode) && ifInsn instanceof JumpInsnNode && gotoInsn.getOpcode() == GOTO) {
@@ -226,7 +225,7 @@ public class EskidFlowTransformer extends Transformer {
                         }
                     }*/
 
-/*    private void removeReplaceReturn() {
+    private void removeReplaceReturn() {
         for (int i = 0; i < method.instructions.toArray().length; i++) {
             if (labelNodes.size() > 0) {
                 LabelNode labelNode = labelNodes.get(0);
@@ -249,5 +248,5 @@ public class EskidFlowTransformer extends Transformer {
                 method.instructions.remove(instruction);
             }
         }
-    }*/
+    }
 }
