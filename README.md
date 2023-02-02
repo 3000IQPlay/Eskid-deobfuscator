@@ -1,5 +1,7 @@
 **Eskid v0.42 transformers implemented in narumii (Built on Java Adoptium 11)**
 
+**Credit for the Eskid transformers: https://github.com/AckerRun1337/Eskid-Deobfuscator**
+
 ***Eskid flow transformer doesn't work:***
 
 Remove a specified comment that contains the code for deobfuscating the type of flow u want to deobf (If the explanation is ass then idk)
